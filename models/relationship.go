@@ -18,33 +18,33 @@ func (m *RelationShip) UniqueCond() (string, []interface{}) {
 	return "master=? and liker=?", []interface{}{m.Master, m.Liker}
 }
 
-func GetAllRelationByUserId(s *ModelSession, uid, page, count int) ([]*RelationShip, error) {
-	var (
-		err error
-		res = make([]*RelationShip, 0)
-	)
-
-	if s == nil {
-		s = newAutoCloseModelsSession()
-	}
-	err = s.Where("master=?", uid).OrderBy("id desc").Limit(page, (page-1)*count).Find(&res)
-
-	return res, err
-}
-
-func GetRelationById(s *ModelSession, master, linker int64) ([]*RelationShip, error) {
-	var (
-		err error
-		res = make([]*RelationShip, 0)
-	)
-
-	if s == nil {
-		s = newAutoCloseModelsSession()
-	}
-	err = s.Where("master=? and liker=?", master, linker).Find(&res)
-
-	return res, err
-}
+//func GetAllRelationByUserId(s *ModelSession, uid, page, count int) ([]*RelationShip, error) {
+//	var (
+//		err error
+//		res = make([]*RelationShip, 0)
+//	)
+//
+//	if s == nil {
+//		s = newAutoCloseModelsSession()
+//	}
+//	err = s.Where("master=?", uid).OrderBy("id desc").Limit(page, (page-1)*count).Find(&res)
+//
+//	return res, err
+//}
+//
+//func GetRelationById(s *ModelSession, master, linker int64) ([]*RelationShip, error) {
+//	var (
+//		err error
+//		res = make([]*RelationShip, 0)
+//	)
+//
+//	if s == nil {
+//		s = newAutoCloseModelsSession()
+//	}
+//	err = s.Where("master=? and liker=?", master, linker).Find(&res)
+//
+//	return res, err
+//}
 
 func DelRelation(s *ModelSession, master, linker int64) (int64, error) {
 	var (

@@ -9,15 +9,6 @@ const (
 	SERVER_ERROR = iota
 	BAD_REQUEST
 	BAD_POST_DATA
-	LOGIN_NEEDED
-	LOGIN_FAILED
-	NOT_PERMITTED
-	GAME_NOT_FOUND
-	TAG_NOT_FOUND
-	VIDEO_NOT_FOUND
-	VIDEO_DUPLICATED
-	USER_NOT_FOUND
-	BALANCE_NOT_ENOUGH
 )
 
 type RequestLogData struct {
@@ -35,15 +26,15 @@ var (
 )
 
 func Success(c *gin.Context, data interface{}) {
-	res := gin.H{"status": true}
-	if data != nil {
-		res["data"] = data
-	}
+	//res := gin.H{"status": true}
+	//if data != nil {
+	//	res["data"] = data
+	//}
 
 	SetServiceSatus(c, true)
 	SetRequestLogData(c, &RequestLogData{Status: true})
 
-	c.JSON(200, res)
+	c.JSON(200, data)
 }
 
 func Error(c *gin.Context, errorCode int, data ...interface{}) {
@@ -84,4 +75,14 @@ func SetServiceSatus(c *gin.Context, status bool) {
 
 func SetRequestLogData(c *gin.Context, data *RequestLogData) {
 	c.Set("_request_log_", data)
+}
+func GetRequestLogDataFromContext(c *gin.Context) *RequestLogData {
+	i, exists := c.Get("_request_log_")
+	if !exists || i == nil {
+		return nil
+	}
+
+	data := i.(*RequestLogData)
+
+	return data
 }

@@ -106,10 +106,13 @@ func LikeUser(c *gin.Context) {
 		return
 	}
 
+	var res = relationRet{strconv.FormatInt(newRelation.Liker, 10), reqData.State, "relationship"}
+
 	//is match?
 	if isMatch, _ := caches.IsMatch(newRelation); isMatch {
 		syncMatchTaskChan <- newRelation
+		res.State = "matched"
 	}
 
-	Success(c, nil)
+	Success(c, res)
 }

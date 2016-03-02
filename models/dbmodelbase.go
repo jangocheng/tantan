@@ -84,7 +84,6 @@ func InsertMany(s *ModelSession, m interface{}) (err error) {
 	return
 }
 
-
 func UpdateDBModel(s *ModelSession, m DBModel) (err error) {
 	whereStr, whereArgs := m.UniqueCond()
 	if s == nil {

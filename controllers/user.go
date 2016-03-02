@@ -58,6 +58,7 @@ func Register(c *gin.Context) {
 		UserName:   reqData.UserName,
 		Type:       "user",
 		CreatedUTC: utils.GetNowSecond(),
+		Status:     1,
 	}
 
 	if err := verifyNewUserData(newUser); err != nil {
