@@ -1,0 +1,24 @@
+{
+  "http_port": 8080,
+
+  "request_log_dir": "./request_log",
+  "error_log_dir": "./error_log",
+
+  "database": {
+    "default": {
+      "host": "127.0.0.1",
+      "port": 35432,
+      "user": "postgres",
+      "db": "tantan",
+      "dir": "./"
+    }
+  },
+
+  "redis": {
+    "default": {
+      "host": "127.0.0.1",
+      "port": 36379,
+      "dir": "./"
+    }
+  }
+}
