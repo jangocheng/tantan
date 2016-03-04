@@ -36,8 +36,9 @@ func init() {
 	}
 	dbEngineDefault.SetMaxOpenConns(100)
 	dbEngineDefault.SetMaxIdleConns(50)
-	dbEngineDefault.ShowErr = true
-	dbEngineDefault.ShowSQL = conf.DebugMode
+	//dbEngineDefault.ShowErr = true
+
+	dbEngineDefault.ShowSQL(conf.DebugMode)
 
 	if dbEngineDefaultRaw, err = sql.Open("postgres", dsn); err != nil {
 		log.Fatal("Failed to init db engine: " + err.Error())
