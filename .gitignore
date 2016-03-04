@@ -13,6 +13,7 @@ _obj
 _test
 Godeps/_workspace/
 .idea
+vendor
 
 # Architecture specific extensions/prefixes
 *.[568vq]
@@ -44,3 +45,4 @@ key_log
 error_log
 
 gin-bin
+tantan

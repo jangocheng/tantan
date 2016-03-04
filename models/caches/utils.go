@@ -4,8 +4,8 @@ import (
 	"math/rand"
 	"strconv"
 
-	"github.com/tantan/cache"
-	"github.com/tantan/conf"
+	"github.com/lxbgit/tantan/cache"
+	"github.com/lxbgit/tantan/conf"
 )
 
 func randomFloat() float64 {

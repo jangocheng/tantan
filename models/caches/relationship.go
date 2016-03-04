@@ -3,7 +3,7 @@ package caches
 import (
 	"strconv"
 
-	"github.com/tantan/models"
+	"github.com/lxbgit/tantan/models"
 )
 
 func addLike(relation *models.RelationShip) (err error) {

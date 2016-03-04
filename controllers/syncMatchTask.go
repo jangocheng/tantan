@@ -1,6 +1,6 @@
 package controllers
 
-import "github.com/tantan/models"
+import "github.com/lxbgit/tantan/models"
 
 var (
 	syncMatchTaskChan = make(chan *models.RelationShip, 1024)

@@ -4,9 +4,9 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
-	"github.com/tantan/models"
-	"github.com/tantan/models/caches"
-	"github.com/tantan/utils"
+	"github.com/lxbgit/tantan/models"
+	"github.com/lxbgit/tantan/models/caches"
+	"github.com/lxbgit/tantan/utils"
 )
 
 type relationRet struct {

@@ -5,9 +5,9 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/tantan/conf"
-	"github.com/tantan/controllers"
-	"github.com/tantan/logger"
+	"github.com/lxbgit/tantan/conf"
+	"github.com/lxbgit/tantan/controllers"
+	"github.com/lxbgit/tantan/logger"
 )
 
 var (

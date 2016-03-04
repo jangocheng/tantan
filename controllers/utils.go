@@ -2,7 +2,7 @@ package controllers
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/tantan/logger"
+	"github.com/lxbgit/tantan/logger"
 )
 
 const (

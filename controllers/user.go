@@ -4,8 +4,8 @@ import (
 	"fmt"
 
 	"github.com/gin-gonic/gin"
-	"github.com/tantan/models"
-	"github.com/tantan/utils"
+	"github.com/lxbgit/tantan/models"
+	"github.com/lxbgit/tantan/utils"
 )
 
 func verifyNewUserData(data *models.UserInfo) error {

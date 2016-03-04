@@ -8,8 +8,8 @@ import (
 	"sync"
 
 	"github.com/Sirupsen/logrus"
-	"github.com/tantan/conf"
-	"github.com/tantan/utils"
+	"github.com/lxbgit/tantan/conf"
+	"github.com/lxbgit/tantan/utils"
 )
 
 var (

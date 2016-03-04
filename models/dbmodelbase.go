@@ -8,8 +8,8 @@ import (
 
 	"github.com/go-xorm/xorm"
 	_ "github.com/lib/pq"
-	"github.com/tantan/conf"
-	"github.com/tantan/logger"
+	"github.com/lxbgit/tantan/conf"
+	"github.com/lxbgit/tantan/logger"
 )
 
 var (
