@@ -1,0 +1,60 @@
+{
+	"ImportPath": "github.com/tantan",
+	"GoVersion": "go1.6",
+	"Deps": [
+		{
+			"ImportPath": "github.com/Sirupsen/logrus",
+			"Comment": "v0.9.0-15-g219c8cb",
+			"Rev": "219c8cb75c258c552e999735be6df753ffc7afdc"
+		},
+		{
+			"ImportPath": "github.com/gin-gonic/gin",
+			"Comment": "v1.0rc1-219-g3d002e3",
+			"Rev": "3d002e382355cafc15d706b92899b1961d5b79e9"
+		},
+		{
+			"ImportPath": "github.com/go-xorm/core",
+			"Comment": "v0.5.1-1-g5021584",
+			"Rev": "502158401cde814951eae62f064d9e5ff39e13ce"
+		},
+		{
+			"ImportPath": "github.com/go-xorm/xorm",
+			"Comment": "v0.5.0-5-g4fec116",
+			"Rev": "4fec1167dee4d169811e9437d6563c76ac1446bf"
+		},
+		{
+			"ImportPath": "github.com/golang/protobuf/proto",
+			"Rev": "c75fbf01dc6cb73649c4cd4326182c3e44aa9dbb"
+		},
+		{
+			"ImportPath": "github.com/lib/pq",
+			"Comment": "go1.0-cutoff-82-ge182dc4",
+			"Rev": "e182dc4027e2ded4b19396d638610f2653295f36"
+		},
+		{
+			"ImportPath": "github.com/manucorporat/sse",
+			"Rev": "fe6ea2c8e398672518ef204bf0fbd9af858d0e15"
+		},
+		{
+			"ImportPath": "github.com/mediocregopher/radix.v2/pool",
+			"Rev": "7bdaf7c45ec452ca691ab20535471e24460f0876"
+		},
+		{
+			"ImportPath": "github.com/mediocregopher/radix.v2/redis",
+			"Rev": "7bdaf7c45ec452ca691ab20535471e24460f0876"
+		},
+		{
+			"ImportPath": "golang.org/x/net/context",
+			"Rev": "47990a1ba55743e6ef1affd3a14e5bac8553615d"
+		},
+		{
+			"ImportPath": "golang.org/x/sys/unix",
+			"Rev": "442cd600860ce722f6615730eb008a37a87b13ee"
+		},
+		{
+			"ImportPath": "gopkg.in/go-playground/validator.v8",
+			"Comment": "v8.17.1",
+			"Rev": "014792cf3e266caff1e916876be12282b33059e0"
+		}
+	]
+}
