@@ -3,7 +3,7 @@
   go1.6 + PostgreSQL 9.4.4 + redis 3.0.3
 # Usage
 
-	cd $GOPATH/src/github.com
+	cd $GOPATH/src/github.com/lxbgit
 	git clone https://github.com/lxbgit/tantan.git
 	cd tantan
 	go build

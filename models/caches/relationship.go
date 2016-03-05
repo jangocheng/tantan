@@ -10,6 +10,9 @@ func addLike(relation *models.RelationShip) (err error) {
 	score := float64(relation.CreatedUTC) + randomFloat()
 	likerIdStr := strconv.FormatInt(relation.Liker, 10)
 	err = addSortedSetElement(getUserListOfUserLikeCacheKey(relation.Master), likerIdStr, score)
+	if err != nil {
+		return
+	}
 
 	return
 }
@@ -17,6 +20,9 @@ func addLike(relation *models.RelationShip) (err error) {
 func DelLike(relation *models.RelationShip) (err error) {
 	likerIdStr := strconv.FormatInt(relation.Liker, 10)
 	err = removeSortedSetElement(getUserListOfUserLikeCacheKey(relation.Master), likerIdStr)
+	if err != nil {
+		return
+	}
 
 	return
 }
@@ -32,6 +38,9 @@ func addUnlike(relation *models.RelationShip) (err error) {
 func delUnlike(relation *models.RelationShip) (err error) {
 	likerIdStr := strconv.FormatInt(relation.Liker, 10)
 	err = removeSortedSetElement(getUserListOfUserUnLikeCacheKey(relation.Master), likerIdStr)
+	if err != nil {
+		return
+	}
 
 	return
 }
@@ -40,9 +49,15 @@ func addMatch(relation *models.RelationShip) (err error) {
 	score := float64(relation.CreatedUTC) + randomFloat()
 	likerIdStr := strconv.FormatInt(relation.Liker, 10)
 	err = addSortedSetElement(getUserListOfUserMatchCacheKey(relation.Master), likerIdStr, score)
+	if err != nil {
+		return
+	}
 
 	masterIdStr := strconv.FormatInt(relation.Master, 10)
 	err = addSortedSetElement(getUserListOfUserMatchCacheKey(relation.Liker), masterIdStr, score)
+	if err != nil {
+		return
+	}
 
 	return
 }
@@ -50,17 +65,34 @@ func addMatch(relation *models.RelationShip) (err error) {
 func delMatch(relation *models.RelationShip) (err error) {
 	likerIdStr := strconv.FormatInt(relation.Liker, 10)
 	err = removeSortedSetElement(getUserListOfUserMatchCacheKey(relation.Master), likerIdStr)
+	if err != nil {
+		return
+	}
 
 	masterIdStr := strconv.FormatInt(relation.Master, 10)
 	err = removeSortedSetElement(getUserListOfUserMatchCacheKey(relation.Liker), masterIdStr)
+	if err != nil {
+		return
+	}
 
 	return
 }
 
 func newDislike(relation *models.RelationShip) (err error) {
 	err = addUnlike(relation)
+	if err != nil {
+		return err
+	}
+
 	err = DelLike(relation)
+	if err != nil {
+		return err
+	}
+
 	err = delMatch(relation)
+	if err != nil {
+		return err
+	}
 
 	return
 }
@@ -73,18 +105,31 @@ func newLike(relation *models.RelationShip) (err error) {
 	exist, err := isSortedSetMemberWithErr(getUserListOfUserLikeCacheKey(relation.Liker), masterIdStr)
 	if exist {
 		err = addMatch(relation)
+		if err != nil {
+			return
+		}
+
 		masterIdStr := strconv.FormatInt(relation.Master, 10)
 		err = removeSortedSetElement(getUserListOfUserLikeCacheKey(relation.Liker), masterIdStr)
+		if err != nil {
+			return
+		}
 	} else {
 		err = addLike(relation)
+		if err != nil {
+			return
+		}
 	}
 
 	return
 }
 
-func IsMatch(relation *models.RelationShip) (bool, error) {
+func IsMatch(relation *models.RelationShip) (exist bool, err error) {
 	likerIdStr := strconv.FormatInt(relation.Liker, 10)
-	exist, err := isSortedSetMemberWithErr(getUserListOfUserMatchCacheKey(relation.Master), likerIdStr)
+	exist, err = isSortedSetMemberWithErr(getUserListOfUserMatchCacheKey(relation.Master), likerIdStr)
+	if err != nil {
+		return
+	}
 
 	return exist, err
 }
