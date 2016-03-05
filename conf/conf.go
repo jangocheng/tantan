@@ -80,7 +80,7 @@ func setupDatabaseConfig(conf interface{}) {
 			databaseConfig[dbName].Port = parseJsonInt(dbConfig, "port", fmt.Sprintf("[database-conf][%s]", dbName))
 			databaseConfig[dbName].DBName = parseJsonString(dbConfig, "db", fmt.Sprintf("[database-conf][%s]", dbName))
 		} else {
-			log.Fatal("database %s config is not correct!!")
+			log.Fatal("database config is not correct!!")
 		}
 	}
 
@@ -108,7 +108,7 @@ func setupRedisConfig(conf interface{}) {
 			redisConfig[dbName].Host = parseJsonString(dbConfig, "host", fmt.Sprintf("[redis-conf][%s]", dbName))
 			redisConfig[dbName].Port = parseJsonInt(dbConfig, "port", fmt.Sprintf("[redis-conf][%s]", dbName))
 		} else {
-			log.Fatal("redis %s config is not correct!!")
+			log.Fatal("redis config is not correct!!")
 		}
 	}
 

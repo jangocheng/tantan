@@ -242,12 +242,12 @@ func SortedSetRange(dbName string, key string, start int, end int) ([]string, er
 func SortedSetRevRangeByScore(dbName string, cacheKey string, maxScore string, minScore string, count int) ([]string, []float64, error) {
 	res := Pools[dbName].Cmd("zrevrangebyscore", cacheKey, maxScore, minScore, "withscores", "limit", 0, count)
 	if res.Err != nil {
-		return nil, nil, fmt.Errorf("redis error: ", res.Err.Error())
+		return nil, nil, fmt.Errorf("redis error: %s", res.Err.Error())
 	}
 
 	redList, err := res.List()
 	if err != nil {
-		return nil, nil, fmt.Errorf("redis error: ", res.Err.Error())
+		return nil, nil, fmt.Errorf("redis error: %s", res.Err.Error())
 	}
 
 	// redis sorted set结构 ["id1", "score1", "id2", "score2"....]
@@ -267,12 +267,12 @@ func SortedSetRevRangeByScore(dbName string, cacheKey string, maxScore string, m
 func SortedSetRangeByScore(dbName string, cacheKey string, maxScore string, minScore string, count int) ([]string, []float64, error) {
 	res := Pools[dbName].Cmd("zrangebyscore", cacheKey, maxScore, minScore, "withscores", "limit", 0, count)
 	if res.Err != nil {
-		return nil, nil, fmt.Errorf("redis error: ", res.Err.Error())
+		return nil, nil, fmt.Errorf("redis error: %s", res.Err.Error())
 	}
 
 	redList, err := res.List()
 	if err != nil {
-		return nil, nil, fmt.Errorf("redis error: ", res.Err.Error())
+		return nil, nil, fmt.Errorf("redis error: %s", res.Err.Error())
 	}
 
 	// redis sorted set结构 ["id1", "score1", "id2", "score2"....]
